@@ -1,4 +1,5 @@
 FROM nginx:alpine
+FROM node:8.3.0-alpine
 
 COPY .nginx/nginx.conf /etc/nginx
 
