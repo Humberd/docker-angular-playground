@@ -13,3 +13,4 @@ COPY dist/* /var/www/html/
 RUN sudo -i
 
 CMD ["systemctl", "start", "nginx"]
+
