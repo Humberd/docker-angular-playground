@@ -3,7 +3,7 @@ FROM node:8.3.0-alpine
 
 COPY .nginx/nginx.conf /etc/nginx
 
-COPY * /app
+COPY * /app/
 
 WORKDIR /app
 
