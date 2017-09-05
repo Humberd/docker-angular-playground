@@ -3,7 +3,9 @@ FROM node:8.3.0-alpine
 
 COPY .nginx/nginx.conf /etc/nginx
 
-RUN ls
+COPY * /app
+
+WORKDIR /app
 
 RUN npm install
 
