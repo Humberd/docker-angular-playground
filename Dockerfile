@@ -2,8 +2,10 @@ FROM nginx:alpine
 
 USER root
 
-RUN apt-get install nodejs
-RUN apt-get install npm
+RUN \
+  apt-get update && \
+  apt-get install nodejs && \
+  apt-get install npm
 
 ADD src /app/src
 COPY package.json /app/
