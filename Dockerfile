@@ -21,6 +21,3 @@ RUN npm run build
 COPY .nginx/nginx.conf /etc/nginx
 
 RUN cp -r /app/dist/ /usr/share/nginx/html
-
-CMD ["systemctl", "start", "nginx"]
-
