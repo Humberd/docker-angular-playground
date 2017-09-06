@@ -1,9 +1,16 @@
 FROM nginx:alpine
-FROM node:8.3.0-alpine
 
-COPY .nginx/nginx.conf /etc/nginx
+USER root
 
-COPY * /app/
+RUN apt-get install nodejs
+RUN apt-get install npm
+
+ADD src /app/src
+COPY package.json /app/
+COPY package-lock.json /app/
+COPY .angular-cli.json /app/
+COPY tsconfig.json /app/
+COPY tslint.json /app/
 
 WORKDIR /app
 
@@ -11,11 +18,9 @@ RUN npm install
 
 RUN npm run build
 
-RUN rm -rf /var/www/html/*
+COPY .nginx/nginx.conf /etc/nginx
 
-COPY dist/* /var/www/html/
-
-RUN sudo -i
+RUN cp -r /app/dist/ /usr/share/nginx/html
 
 CMD ["systemctl", "start", "nginx"]
 
