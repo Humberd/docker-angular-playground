@@ -4,8 +4,8 @@ USER root
 
 RUN \
   apt-get update && \
-  apt-get install nodejs && \
-  apt-get install npm
+  sudo apt-get install -y nodejs && \
+  sudo apt-get install -y npm
 
 ADD src /app/src
 COPY package.json /app/
