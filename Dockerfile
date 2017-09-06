@@ -20,7 +20,10 @@ RUN npm run build
 
 #COPY .nginx/nginx.conf /etc/nginx
 
-RUN cp -r /app/dist/ /usr/share/nginx/html
+RUN rm -rf /usr/share/nginx/html/*
+
+RUN cp -r /app/dist/* /usr/share/nginx/html
 
 RUN apk del nodejs
 RUN apk cache clean
+RUN rm-rf ~/node_modules
