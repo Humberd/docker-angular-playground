@@ -22,3 +22,5 @@ RUN npm run build
 
 RUN cp -r /app/dist/ /usr/share/nginx/html
 
+RUN apk del nodejs
+RUN apk cache clean
