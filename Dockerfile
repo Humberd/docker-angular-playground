@@ -3,9 +3,9 @@ FROM nginx:alpine
 USER root
 
 RUN \
-  apt-get update && \
-  sudo apt-get install -y nodejs && \
-  sudo apt-get install -y npm
+  apk update && \
+  sudo apk add nodejs && \
+  sudo apk add npm
 
 ADD src /app/src
 COPY package.json /app/
