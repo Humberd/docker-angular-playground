@@ -4,8 +4,8 @@ USER root
 
 RUN \
   apk update && \
-  sudo apk add nodejs && \
-  sudo apk add npm
+  apk add nodejs && \
+  apk add npm
 
 ADD src /app/src
 COPY package.json /app/
