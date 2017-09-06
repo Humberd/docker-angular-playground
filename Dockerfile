@@ -23,6 +23,3 @@ RUN npm run build
 RUN rm -rf /usr/share/nginx/html/*
 
 RUN cp -r /app/dist/* /usr/share/nginx/html
-
-RUN apk del nodejs
-RUN rm-rf ~/node_modules
