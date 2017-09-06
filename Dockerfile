@@ -2,10 +2,8 @@ FROM nginx:alpine
 
 USER root
 
-RUN \
-  apk update && \
-  apk add nodejs && \
-  apk add npm
+RUN  apk update
+RUN  apk add nodejs
 
 ADD src /app/src
 COPY package.json /app/
