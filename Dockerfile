@@ -8,7 +8,7 @@ RUN apk add nodejs
 ADD package.json /tmp
 ADD package-lock.json /tmp
 RUN cd /tmp && npm install
-RUN mkdir -p /usr/src/app && cp -a /tmp/node_modules /usr/src/app/
+RUN mkdir -p /app && cp -a /tmp/node_modules /app/
 
 WORKDIR /app
 
