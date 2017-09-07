@@ -5,16 +5,14 @@ USER root
 RUN apk update
 RUN apk add nodejs
 
-ADD src /app/src
-COPY package.json /app/
-COPY package-lock.json /app/
-COPY .angular-cli.json /app/
-COPY tsconfig.json /app/
-COPY tslint.json /app/
+ADD package.json /tmp
+ADD package-lock.json /tmp
+RUN cd /tmp && npm install
+RUN mkdir -p /usr/src/app && cp -a /tmp/node_modules /usr/src/app/
 
 WORKDIR /app
 
-RUN npm install
+COPY . .
 
 RUN npm run build
 
