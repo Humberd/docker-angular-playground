@@ -1,9 +1,10 @@
-FROM nginx:alpine
+FROM nginx
 
 USER root
 
-RUN apk update
-RUN apk add nodejs
+RUN apt-get update
+RUN apt-get install nodejs
+RUN apt-get install npm
 
 WORKDIR /app
 
@@ -13,7 +14,7 @@ RUN npm install
 RUN npm run build
 
 #COPY .nginx/nginx.conf /etc/nginx
-
+RUN rm -rf node_modules
 RUN rm -rf /usr/share/nginx/html/*
 
 RUN cp -r /app/dist/* /usr/share/nginx/html
